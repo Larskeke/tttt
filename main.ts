@@ -17,13 +17,62 @@ basic.forever(function () {
     if (ir_waarde == voor) {
         basic.showLeds(`
             . . # . .
-            . # # # .
+            . # # # #
             # . # . #
             . . # . .
             . . # . .
             `)
-        Maqueen_V5.motorRun(Maqueen_V5.Motors.All, Maqueen_V5.Dir.CW, 100)
-        basic.pause(500)
-        maqueen.motorStop(maqueen.Motors.All)
+        Maqueen_V5.motorRun(Maqueen_V5.Motors.All, Maqueen_V5.Dir.CW, 20)
+        basic.pause(1000)
+    }
+})
+basic.forever(function () {
+    if (ir_waarde == rechts) {
+        basic.showLeds(`
+            . . # . .
+            . . . # .
+            # # # # #
+            . . . # .
+            . . # . .
+            `)
+        Maqueen_V5.motorRun(Maqueen_V5.Motors.M1, Maqueen_V5.Dir.CCW, 20)
+        Maqueen_V5.motorRun(Maqueen_V5.Motors.M2, Maqueen_V5.Dir.CW, 20)
+    }
+})
+basic.forever(function () {
+    if (ir_waarde == achter) {
+        basic.showLeds(`
+            . . # . .
+            . . # . .
+            # . # . #
+            . # # # .
+            . . # . .
+            `)
+        Maqueen_V5.motorRun(Maqueen_V5.Motors.All, Maqueen_V5.Dir.CCW, 20)
+    }
+})
+basic.forever(function () {
+    if (ir_waarde == links) {
+        basic.showLeds(`
+            . . # . .
+            . # . . .
+            # # # # #
+            . # . . .
+            . . # . .
+            `)
+        Maqueen_V5.motorRun(Maqueen_V5.Motors.M2, Maqueen_V5.Dir.CCW, 20)
+        Maqueen_V5.motorRun(Maqueen_V5.Motors.M1, Maqueen_V5.Dir.CW, 20)
+    }
+})
+basic.forever(function () {
+    if (ir_waarde == stop) {
+        basic.showLeds(`
+            # . . . #
+            . # . # .
+            . . # . .
+            . # . # .
+            # . . . #
+            `)
+        Maqueen_V5.motorStop(Maqueen_V5.Motors.All)
     }
 })
